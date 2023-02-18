@@ -20,10 +20,10 @@
   },
   "scripts": {
     "clean": "rm -fr dist",
-    "start": "webpack --mode production && cpy ./dist/bundle.js ./public --flat && tsc && node ./dist/expressMain.js",
+    "start": "tsc && node ./dist/expressMain.js",
     "develop": "webpack serve --hot --port 9090",
-    "build": "webpack --mode production",
-    "tmd": "tsc"
+    "build-webpack": "webpack --mode production && cpy ./dist/bundle.js ./public --flat",
+    "build-ts": "tsc"
   },
   "repository": {
     "type": "git",
