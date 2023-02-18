@@ -7,9 +7,11 @@
     "node": ">=16.x"
   },
   "dependencies": {
-    "cpy-cli": "^4.2.0"
+    "cpy-cli": "^4.2.0",
+    "express": "^4.18.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0",
@@ -17,10 +19,11 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "clean": "rm -fr dist && rm ./bundle.js && rm ./index.html",
-    "start": "webpack --mode production && cpy ./dist/bundle.js ./ --flat && cpy ./public/index.html ./ --flat",
+    "clean": "rm -fr dist",
+    "start": "webpack --mode production && cpy ./dist/bundle.js ./public --flat && tsc && node ./dist/expressMain.js",
     "develop": "webpack serve --hot --port 9090",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "tmd": "tsc"
   },
   "repository": {
     "type": "git",
